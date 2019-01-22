@@ -5,7 +5,11 @@ import App from './App'
 import router from './router'
 import '../static/bootstrap/css/bootstrap.css'
 import '../static/bootstrap/css/bootstrap-theme.css'
+import global_ from './global.js'
+import VueResource from 'vue-resource'
+Vue.prototype.GLOBAL = global_
 
+Vue.use(VueResource)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
