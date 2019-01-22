@@ -12,6 +12,16 @@ Vue.prototype.GLOBAL = global_
 Vue.use(VueResource)
 Vue.config.productionTip = false
 
+Vue.http.interceptors.push((request, next) => {
+  // request.credentials = true
+  request.headers.set('token', window.localStorage.getItem('token'))
+  request.headers.set('Access-Control-Allow-Origin', '*')
+  request.headers.set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+  next(function (response) {
+    return response
+  })
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
