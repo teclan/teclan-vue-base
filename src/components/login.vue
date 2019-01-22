@@ -69,6 +69,8 @@ export default {
             const token = resData.token
             window.localStorage.setItem('token', token)
             alert(resData.message)
+            // 登录成功，直接跳转到指定页面
+            this.$router.push('helloWorld')
           } else if (resData.code === 401) {
             this.loginForm.message = '账号或密码错误'
           }
