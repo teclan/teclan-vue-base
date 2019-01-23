@@ -1,6 +1,9 @@
 <template>
   <div id="login-form" style="margin:0 auto; width:500px; height:10px;">
     <form class="form-horizontal">
+      <div class="form-group" style="margin:40% 50% 20px 30%;">
+         <img src="../assets/logo.png">
+      </div>
       <div class="form-group">
         <label for="accountId" class="col-sm-2 control-label">账号</label>
         <div class="col-sm-10">
@@ -10,14 +13,15 @@
       <div class="form-group">
         <label for="password" class="col-sm-2 control-label">密码</label>
         <div class="col-sm-10">
-          <input type="password" class="form-control" id="password" v-model="loginForm.password" placeholder="请输入登录密码">
+          <input type="password" class="form-control" id="password" v-model="loginForm.password" v-on:input="cleanMessage" placeholder="请输入登录密码">
         </div>
       </div>
       <div class="form-group">
-         <label style="color: red">{{loginForm.message}}</label>
-      </div>
-      <div class="form-group">
-        <div class="col-sm-offset-1 col-sm-10">
+         <div class="col-sm-offset-5">
+           <font size="2" color="red">{{loginForm.message}}</font>
+          <!-- <label style="color: red; font.size: 1">{{loginForm.message}}</label> -->
+        </div>
+        <div class="col-sm-offset-10">
           <button type="submit" class="btn btn-default" v-on:click="login">登录</button>
         </div>
       </div>
@@ -70,9 +74,10 @@ export default {
             window.localStorage.setItem('token', token)
             alert(resData.message)
             // 登录成功，直接跳转到指定页面
-            this.$router.push('helloWorld')
+            this.$router.push('manage')
           } else if (resData.code === 401) {
             this.loginForm.message = '账号或密码错误'
+            // this.$router.push('manage')
           }
         })
         .catch(function (e) {

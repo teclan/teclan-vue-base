@@ -7,9 +7,14 @@ import '../static/bootstrap/css/bootstrap.css'
 import '../static/bootstrap/css/bootstrap-theme.css'
 import global_ from './global.js'
 import VueResource from 'vue-resource'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-default/index.css'
+
 Vue.prototype.GLOBAL = global_
 
 Vue.use(VueResource)
+Vue.use(ElementUI)
+
 Vue.config.productionTip = false
 
 Vue.http.interceptors.push((request, next) => {
