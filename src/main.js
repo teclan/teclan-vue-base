@@ -18,6 +18,7 @@ Vue.use(ElementUI)
 
 Vue.config.productionTip = false
 
+// 全局设置 http 请求头，现只有登录时走此配置，其余的在 fetch.js 中配置
 Vue.http.interceptors.push((request, next) => {
   // request.credentials = true
   request.headers.set('token', window.localStorage.getItem('token'))
