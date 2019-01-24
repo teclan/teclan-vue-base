@@ -84,8 +84,10 @@ export default {
           }
         })
         .catch(function (e) {
-          console.log(e)
-          alert('出错了')
+          this.$message({
+            type: 'error',
+            message: '登录失败，请联系管理员'
+          })
         })
     },
     cleanMessage: function () {
