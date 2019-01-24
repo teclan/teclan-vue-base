@@ -1,8 +1,8 @@
-const BASE_URL = 'http://localhost:80/api/v1'
+import global_ from '../global.js'
 
 export default async (url = '', data = {}, type = 'GET', method = 'fetch') => {
   type = type.toUpperCase()
-  url = BASE_URL + url
+  url = global_.BASE_URL + url
   if (type === 'GET') {
     let dataStr = ''
     Object.keys(data).forEach(key => { dataStr += key + '=' + data[key] + '&' })

@@ -33,7 +33,7 @@ export default {
       ],
       currentRow: null,
       offset: 0,
-      limit: 1,
+      limit: this.GLOBAL.LIMIT,
       total: 0,
       currentPage: 1
     }
