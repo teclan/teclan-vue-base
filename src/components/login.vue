@@ -72,7 +72,10 @@ export default {
           if (resData.code === 200) {
             const token = resData.token
             window.localStorage.setItem('token', token)
-            alert(resData.message)
+            this.$message({
+              type: 'success',
+              message: resData.message
+            })
             // 登录成功，直接跳转到指定页面
             this.$router.push('manage')
           } else if (resData.code === 401) {
