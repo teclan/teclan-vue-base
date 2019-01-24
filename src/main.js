@@ -9,6 +9,7 @@ import global_ from './global.js'
 import VueResource from 'vue-resource'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
+import store from './store/'
 
 Vue.prototype.GLOBAL = global_
 
@@ -31,6 +32,7 @@ Vue.http.interceptors.push((request, next) => {
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
