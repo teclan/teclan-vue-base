@@ -45,6 +45,7 @@ export default {
             type: 'success',
             message: '退出成功'
           })
+          window.localStorage.removeItem('token')
           this.$router.push('/')
         } else {
           this.$message({

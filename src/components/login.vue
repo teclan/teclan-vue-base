@@ -63,7 +63,7 @@ export default {
         })
     },
 
-    login: function () {
+    async login () {
       var url = this.GLOBAL.BASE_URL + '/login'
       this.$http
         .post(url, this.loginForm)
