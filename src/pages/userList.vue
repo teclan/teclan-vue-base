@@ -13,9 +13,9 @@
           @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
           :current-page="currentPage"
-          :page-size="20"
+          :page-size="limit"
           layout="total, prev, pager, next"
-          :total="count"
+          :total="total"
         ></el-pagination>
       </div>
     </div>
@@ -30,21 +30,11 @@ export default {
   data () {
     return {
       tableData: [
-        // {
-        //   id: '1',
-        //   post: '王小虎',
-        //   age: 20
-        // },
-        // {
-        //   id: '2',
-        //   post: '熊大',
-        //   age: 44
-        // }
       ],
       currentRow: null,
       offset: 0,
-      limit: 20,
-      count: 0,
+      limit: 1,
+      total: 0,
       currentPage: 1
     }
   },
@@ -59,8 +49,7 @@ export default {
       try {
         const resp = await getUserCount()
         if (resp.code === 200) {
-          this.count = resp.count
-          console.log(this.count)
+          this.total = resp.count
         } else {
           throw new Error('获取数据失败')
         }
